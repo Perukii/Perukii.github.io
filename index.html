@@ -21,59 +21,59 @@
 ==[source]=========================================================<br>
 
 struct quick_data{<br>
-<emsp>int start,end_plus1,pivot;<br>
-<emsp>quick_data(int _start, int _end_plus1, int _pivot=-1){<br>
-<emsp><emsp>start=_start;<br>
-<emsp><emsp>end_plus1=_end_plus1;<br>
-<emsp><emsp>pivot=_pivot;<br>
-<emsp>}<br>
+&nbsp;&nbsp;int start,end_plus1,pivot;<br>
+&nbsp;&nbsp;quick_data(int _start, int _end_plus1, int _pivot=-1){<br>
+&nbsp;&nbsp;&nbsp;&nbsp;start=_start;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;end_plus1=_end_plus1;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;pivot=_pivot;<br>
+&nbsp;&nbsp;}<br>
 };<br>
-<emsp><br>
-<emsp><br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;<br>
 void QS::quick_sort(quick_data _data){<br>
 <br>
-<emsp>if(_data.pivot==-1)_data.pivot=_data.end_plus1-1;<br>
+&nbsp;&nbsp;if(_data.pivot==-1)_data.pivot=_data.end_plus1-1;<br>
 <br>
-<emsp>int right=_data.end_plus1-1,left=_data.start;<br>
-<emsp>bool retry=true;<br>
+&nbsp;&nbsp;int right=_data.end_plus1-1,left=_data.start;<br>
+&nbsp;&nbsp;bool retry=true;<br>
   <br>  
-<emsp>//出力用<br>
-<emsp>//cout<<_data.start<<":"<<_data.end_plus1<<"("<<vals[_data.pivot]<<endl;<br>
+&nbsp;&nbsp;//出力用<br>
+&nbsp;&nbsp;//cout<<_data.start<<":"<<_data.end_plus1<<"("<<vals[_data.pivot]<<endl;<br>
 <br>
-<emsp>while(right>left){
-<emsp><emsp>bool right_is_ready=false;<br>
+&nbsp;&nbsp;while(right>left){
+&nbsp;&nbsp;&nbsp;&nbsp;bool right_is_ready=false;<br>
 <br>
-<emsp><emsp>if(vals[right]<=vals[_data.pivot]){<br>
-<emsp><emsp><emsp>right_is_ready=true;<br>
-<emsp><emsp>}<br>
-<emsp><emsp>else right--;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if(vals[right]<=vals[_data.pivot]){<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;right_is_ready=true;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;else right--;<br>
 <br>
-<emsp><emsp>if(vals[left]>=vals[_data.pivot]){<br>
-<emsp><emsp><emsp>if(right_is_ready){<br>
-<emsp><emsp><emsp><emsp>swap(vals[right],vals[left]);<br>
-<emsp><emsp><emsp><emsp>retry=false;<br>
-<emsp><emsp><emsp>}<br>
-<emsp><emsp>}<br>
-<emsp><emsp>else left++;<br>
-<emsp>}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if(vals[left]>=vals[_data.pivot]){<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(right_is_ready){<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;swap(vals[right],vals[left]);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;retry=false;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;else left++;<br>
+&nbsp;&nbsp;}<br>
 <br>
-<emsp>if(retry){<br>
-<emsp><emsp>if(_data.pivot>_data.start)quick_sort(quick_data(_data.start,_data.end_plus1,_data.pivot-1));<br>
-<emsp>}<br>
-<emsp>else{<br>
-<emsp><emsp>if(left-_data.start>=2)<emsp>qdatas[reps+1].push_back( quick_data(_data.start, left) );<br>
-<emsp><emsp>if(_data.end_plus1-left>=2)qdatas[reps+1].push_back( quick_data(left, _data.end_plus1) );<br>
-<emsp>}<br>
-<emsp><br>
+&nbsp;&nbsp;if(retry){<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if(_data.pivot>_data.start)quick_sort(quick_data(_data.start,_data.end_plus1,_data.pivot-1));<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;else{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if(left-_data.start>=2)&nbsp;&nbsp;qdatas[reps+1].push_back( quick_data(_data.start, left) );<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if(_data.end_plus1-left>=2)qdatas[reps+1].push_back( quick_data(left, _data.end_plus1) );<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;<br>
 <br>
 }<br>
-<emsp><br>
+&nbsp;&nbsp;<br>
 void QS::func(){<br>
-<emsp>qdatas.push_back({});<br>
-<emsp>for(auto it:qdatas[reps]){<br>
-<emsp><emsp>quick_sort(it);<br>
-<emsp>}<br>
-<emsp>reps++;<br>
+&nbsp;&nbsp;qdatas.push_back({});<br>
+&nbsp;&nbsp;for(auto it:qdatas[reps]){<br>
+&nbsp;&nbsp;&nbsp;&nbsp;quick_sort(it);<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;reps++;<br>
 }<br>
 <br>
 =========================================================<br>
